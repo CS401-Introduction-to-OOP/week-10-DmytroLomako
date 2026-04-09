@@ -32,3 +32,34 @@ public class Party : IEnumerable<Character>
         }
     }
 }
+
+public class EventLog : IEnumerable<Event>
+{
+    private readonly List<Event> _events = new();
+
+    public void AddEvent(Event myEvent)
+    {
+        _events.Add(myEvent);
+    }
+
+    public IEnumerator<Event> GetEnumerator()
+    {
+        foreach (var myEvent in _events)
+        {
+            yield return myEvent;
+        }
+    }
+
+    IEnumerator IEnumerable.GetEnumerator() => _events.GetEnumerator();
+    
+    public IEnumerable<Event> GetEventsWithType(string eventType)
+    {
+        foreach (var myEvent in _events)
+        {
+            if (myEvent.EventType == eventType)
+            {
+                yield return myEvent;
+            }
+        }
+    }
+}
