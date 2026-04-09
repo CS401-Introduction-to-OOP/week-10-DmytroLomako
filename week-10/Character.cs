@@ -13,4 +13,9 @@ public class Character
     {
         Name = name; Role = role; Level = level; Health = health; Gold = gold; State = state;
     }
+
+    public override string ToString()
+    {
+        return $"{Name} {Role} {Level} {Health} {Gold} {State}";
+    }
 }

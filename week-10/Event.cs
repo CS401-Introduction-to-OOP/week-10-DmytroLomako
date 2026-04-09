@@ -11,4 +11,9 @@ public class Event
     {
         Turn = turn; Description = description; EventType = eventType; CharChange = charChange;
     }
+
+    public override string ToString()
+    {
+        return $"{Turn} {Description} {EventType} {CharChange}";
+    }
 }
